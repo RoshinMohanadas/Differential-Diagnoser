@@ -1,0 +1,34 @@
+
+
+disease |
+---------
+dno     | dname   | dval    | description | remedy |
+
+
+symptom |
+---------
+sno     | sname   | sval    | description |
+
+
+user    |
+---------
+uno     | username | type | email |
+
+
+userhassymptom |
+----------------
+uno | sno |
+
+
+userhasdisease |
+----------------
+uno | dno |
+
+
+regionsymptom |
+---------------
+rno | sno |
+
+region |
+--------
+rno | 

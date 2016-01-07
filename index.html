@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>
+               Differential Diagnoser
+        </title>
+	
+	
+	<meta charset="utf-8">
+		<script src="symptom.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Differential Diagnoser</h1>
+			<p>Primary diagnosis</p> 
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<input type="button" name="Getsymptoms" value="getsymptoms" onclick="listsymptoms('head')"></input>
+				<div id="humanBodyDivision">
+					<img src="human_body1.jpg" usemap="#newmap"></img>
+					<map name="newmap">
+						<area shape="poly" 
+							coords="97,34,110,10,131,2,160,10,163,38,149,66,115,66"
+							name="head"
+							target="_self" 
+							onclick="listsymptoms('head')"/>
+						 
+						 <area shape="poly" 
+							coords="36,286,57,177,84,197,61,248"
+							name="righthand"
+							target="_self" 
+							onclick="listsymptoms('righthand')"/>
+					 
+						 <area shape="poly" 
+							coords="183,200,213,191,237,245,212,255"
+							name="lefthand"
+							target="_self" 
+							onclick="listsymptoms('lefthand')"/>
+					</map>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div id="listdiv">
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div id="finallist">
+				</div>
+			</div>			
+		</div>
+	</div>
+    </body>
+</html>
+
