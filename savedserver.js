@@ -53,18 +53,30 @@ var server = http.createServer(function(req, res) {
 			{
   				if(err) throw err;
 
+				  //console.log('Data received from Db:\n');
+				  //console.log(rows);
+				
 				for (var i = 0; i < rows.length; i++) 
 				{
-					  
+					  //console.log(rows[i].sname);
 					  str.push({"NAME":rows[i].sname,"VALUE":rows[i].sval});
 				};
 				
-				
+				//strobj = JSON.stringify({"str":str});
 				console.log(JSON.stringify({"str":str}));
 				 
                                 console.log(str);
 				res.write(JSON.stringify({"str":str}));
-				
+				/*
+				if(post.region == "'head'")
+				{
+					console.log("Entered");
+				res.write(JSON.stringify([{ "NAME": "Headache", "VALUE": 20},{ "NAME": "Dizzines", "VALUE": 33}]));
+				}  
+				else if (post.region == "'righthand'"||post.region == "'lefthand'")
+				{res.write(JSON.stringify([{ "NAME": "Rashes", "VALUE": 40},{ "NAME": "Swelling", "VALUE": 78}]));
+				}
+				*/
 				res.end();
 			
 				console.log("string sent");

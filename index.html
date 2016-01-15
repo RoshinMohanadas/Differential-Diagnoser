@@ -7,20 +7,63 @@
 	
 	<meta charset="utf-8">
 		<script src="symptom.js"></script>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!--link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"-->
+		<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+		<script src="jq/jquery-2.1.0.js"></script>
+		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
+		<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+		<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
 		<link rel="stylesheet" href="style.css">
+<style>
+#listdiv,#finallist{
+background-color: Transparent;
+
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52',GradientType=0);
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #090a09;
+	color:#cccccc;}
+</style>
     </head>
+
     <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Differential Diagnoser - Diagnoses</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <button type="submit" class="btn btn-info">Advanced</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+
+      </nav>
+<br>
+<br>
+<br>
+<br>
 	<div class="container">
-		<div class="jumbotron">
-			<h1>Differential Diagnoser</h1>
-			<p>Primary diagnosis</p> 
+		
+		<div class = "row">
+			<div class = "col-md-3" >
+				<code>Human Body</code>
+			</div>
+			<div class = "col-md-3">
+				<code>Possible Symptoms</code>
+			</div>
+			<div class = "col-md-3">
+				<code>Final List</code>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-3">
-				<input type="button" name="Getsymptoms" value="getsymptoms" onclick="listsymptoms('head')"></input>
+				<!--input type="button" name="Getsymptoms" value="getsymptoms" onclick="listsymptoms('head')"></input-->
 				<div id="humanBodyDivision">
 					<img src="human_body1.jpg" usemap="#newmap"></img>
 					<map name="newmap">

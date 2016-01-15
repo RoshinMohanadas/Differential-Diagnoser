@@ -62,8 +62,8 @@ function eventManage()
 			    success: function(data) 
 			    {
 				//alert("hello");
-				var obj = data;
-				//alert(data);
+				var obj = data.str;
+				alert(obj);
 				var length = obj.length;
 				var i=0;
 		    
@@ -75,7 +75,7 @@ function eventManage()
 				{
 				    var div = document.createElement("div");
 				    div.innerHTML = obj[i].NAME+" - "+obj[i].VALUE;
-				    div.style.backgroundColor = "#666633";
+				    div.style.backgroundColor = "#ffffff";
 				    div.setAttribute("onclick",'add("'+obj[i].NAME+'",'+obj[i].VALUE+')');
 				    listdiv.appendChild(div);
 				    var o = document.createElement('br');
@@ -98,14 +98,27 @@ function eventManage()
 			
 			var div = document.createElement('div');
 			div.innerHTML = name;
-			div.style.backgroundColor = "#666633";
+			div.style.backgroundColor = "#ffffff";
 			final.appendChild(div);
 			
+			/*
+			var num = Math.random(1000);
+			div.setAttribute("id",num);
+			var sp = document.createElement('span');
+			sp.setAttribute("class","glyphicon glyphicon-remove");
+			sp.setAttribute("onclick","alert('remove from list?');remove('finallist',"+num+");");
+			final.appendChild(sp);
+			*/
 			var o = document.createElement('br');
 			final.appendChild(o);
 			
 		}  
 
+
+function remove(parent,child)
+{
+	
+}
 
 function listParameters(healthCondition)
 {

@@ -17,18 +17,27 @@ uno     | username | type | email |
 
 userhassymptom |
 ----------------
-uno | sno |
+usid | uno | sno |
 
 
 userhasdisease |
 ----------------
-uno | dno |
+udid | uno | dno |
 
 
 regionsymptom |
 ---------------
-rno | sno |
+rsid | rno | sno |
 
 region |
 --------
 rno | rname |
+
+Queries
+-------
+
+//To get symptoms corresponding to a region
+
+SELECT symptom.sname, symptom.sval FROM symptom,region,regionsymptom WHERE symptom.sno = regionsymptom.sno AND region.rno = regionsymptom.rno AND region.rname = 'head';
+
+//
