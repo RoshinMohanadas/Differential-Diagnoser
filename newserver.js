@@ -1,7 +1,7 @@
 var http = require('http');
 var qs = require('querystring');
 var mysql = require('mysql');
-
+var MLP = require('mlp');
 
 
 var finalhandler = require('finalhandler');
@@ -77,6 +77,35 @@ var server = http.createServer(function(req, res) {
 		
 		
     	}
+	else if (path == "/mlp")
+	{	
+		/*
+		console.log("sdjhbds");
+		var mlp = new MLP(2,1);
+		mlp.addHiddenLayer(2);
+		mlp.init();
+
+		mlp.addToTrainingSet([0, 0], [0]);
+		mlp.addToTrainingSet([0, 1], [1]);
+		mlp.addToTrainingSet([1, 0], [1]);
+		mlp.addToTrainingSet([1, 1], [0]);	
+
+		var learnRate = 0.9;
+		var error = Number.MAX_VALUE;
+		//mlp.train(learnRate);
+				
+		while (error > 0.1) {
+			error = mlp.train(learnRate);
+			console.log(error);
+		}	
+		
+		var element = [1, 1];
+		var classification = mlp.classify(element);
+		console.log(classification);
+		*/
+	
+	}
+	
 	else
 	{
 
