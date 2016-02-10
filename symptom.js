@@ -51,6 +51,7 @@ function eventManage()
 */
 
 		var arr = [];
+		var arrfinal = [];
 		var sym = [];
 		function listsymptoms(name)
 		{
@@ -61,9 +62,7 @@ function eventManage()
 			    url: 'http://localhost:8000/getsymptoms',
 			    success: function(data) 
 			    {
-				//alert("hello");
 				var obj = data.str;
-				alert(obj);
 				var length = obj.length;
 				var i=0;
 		    
@@ -88,30 +87,34 @@ function eventManage()
 
 		function add(name,value)
 		{
-		    
-		    arr.push(value);
-		    sym.push(name);
-		    
-		    
-		    var final = document.getElementById('finallist');
-		    
+
+			console.log($.inArray(value,arr));
+		    	if($.inArray(value,arr)==-1)
+			{   
+				arr.push(value);
+				arrfinal.push({"SNO": value});
+			    	sym.push(name);
+			    
+			    
+			    	var final = document.getElementById('finallist');
+			    
 			
-			var div = document.createElement('div');
-			div.innerHTML = name;
-			div.style.backgroundColor = "#ffffff";
-			final.appendChild(div);
+				var div = document.createElement('div');
+				div.innerHTML = name;
+				div.style.backgroundColor = "#ffffff";
+				final.appendChild(div);
 			
-			/*
-			var num = Math.random(1000);
-			div.setAttribute("id",num);
-			var sp = document.createElement('span');
-			sp.setAttribute("class","glyphicon glyphicon-remove");
-			sp.setAttribute("onclick","alert('remove from list?');remove('finallist',"+num+");");
-			final.appendChild(sp);
-			*/
-			var o = document.createElement('br');
-			final.appendChild(o);
-			
+				/*
+				var num = Math.random(1000);
+				div.setAttribute("id",num);
+				var sp = document.createElement('span');
+				sp.setAttribute("class","glyphicon glyphicon-remove");
+				sp.setAttribute("onclick","alert('remove from list?');remove('finallist',"+num+");");
+				final.appendChild(sp);
+				*/
+				var o = document.createElement('br');
+				final.appendChild(o);
+			 }
 		}  
 
 
@@ -125,8 +128,8 @@ function listParameters(healthCondition)
     $.ajax({
             type: "POST",
             dataType: "json",
-            data: {region : name},
-            url: 'ajax/getparams.php',
+            data: {'disease' : healthCondition},
+            url: 'http://localhost:8000/listparam',
             success: function(data) 
             {
 
@@ -148,5 +151,43 @@ function listParameters(healthCondition)
         });
     
 }
+
+function send()
+{
+	var info = [];
+	info[0] = 'hi';
+	info[1] = 'hello';
+	
+	$.ajax
+	({  type: "POST",
+            dataType: "json",
+            data:JSON.stringify({symptoms : arrfinal}),
+            url: 'http://localhost:8000/inputsymptoms',
+            success: function(data) 
+            {
+
+                var obj = JSON.parse(data);
+                var length = obj.length();
+                var i=0;
+    
+                var listparams = document.getElementById("listdiseases");
+                listparams.innerHTML = "";
+                while(i<length)
+                {
+		            var div = document.createElement("div");
+			    div.innerHTML = obj[i].NAME;
+			    div.style.backgroundColor = "#ffffff";
+			    //div.setAttribute("onclick",'add("'+obj[i].NAME+'",'+obj[i].VALUE+')');
+			    listdiv.appendChild(div);
+			    var o = document.createElement('br');
+			    listdiv.appendChild(o); 
+			    i++;
+                }
+            }
+	});
+}
+
+
+
 
 

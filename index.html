@@ -14,6 +14,9 @@
 		<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 		<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
 		<link rel="stylesheet" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+		<script src="maphilight-master/jquery.maphilight.js"></script>
+		
 <style>
 #listdiv,#finallist{
 background-color: Transparent;
@@ -21,12 +24,23 @@ background-color: Transparent;
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52',GradientType=0);
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family: 'Ubuntu', sans-serif;
 	font-size:20px;
 	font-weight:bold;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #090a09;
-	color:#cccccc;}
+	color:#999999;
+	
+}
+
+body {
+
+	background-color:#ffffff;
+}
+
+#listdiv div:hover {color:#0055ff; background-color:blue; background-image:url(); background-repeat:repeat-x;}
+
+
 </style>
     </head>
 
@@ -63,27 +77,44 @@ background-color: Transparent;
 		</div>
 		<div class="row">
 			<div class="col-md-3">
-				<!--input type="button" name="Getsymptoms" value="getsymptoms" onclick="listsymptoms('head')"></input-->
+				<input type="button" name="submitList" value="Submit List" onclick="send()"></input-->
 				<div id="humanBodyDivision">
 					<img src="human_body1.jpg" usemap="#newmap"></img>
-					<map name="newmap">
-						<area shape="poly" 
+					<map class="map" name="newmap">
+						<area 
+							id="head"
+							shape="poly" 
 							coords="97,34,110,10,131,2,160,10,163,38,149,66,115,66"
 							name="head"
+							data-maphilight='{"strokeColor":"0000ff","strokeWidth":5,"fillColor":"ff0000","fillOpacity":0.6}'
 							target="_self" 
 							onclick="listsymptoms('head')"/>
 						 
-						 <area shape="poly" 
+						 <area 
+							id="rh"
+							shape="poly" 
 							coords="36,286,57,177,84,197,61,248"
 							name="righthand"
+							data-maphilight='{"strokeColor":"0000ff","strokeWidth":5,"fillColor":"ff0000","fillOpacity":0.6}'
 							target="_self" 
 							onclick="listsymptoms('righthand')"/>
 					 
-						 <area shape="poly" 
+						 <area 
+							id="lh"
+							shape="poly" 
 							coords="183,200,213,191,237,245,212,255"
 							name="lefthand"
+							data-maphilight='{"strokeColor":"0000ff","strokeWidth":5,"fillColor":"ff0000","fillOpacity":0.6}'
 							target="_self" 
 							onclick="listsymptoms('lefthand')"/>
+						 <area 
+							id="lh"
+							shape="poly" 
+							coords="90,121,130,124,172,120,172,143,167,167,129,169,98,168,90,144"
+							name="lefthand"
+							data-maphilight='{"strokeColor":"0000ff","strokeWidth":5,"fillColor":"ff0000","fillOpacity":0.6}'
+							target="_self" 
+							onclick="listsymptoms('chest')"/>
 					</map>
 				</div>
 			</div>
@@ -98,5 +129,13 @@ background-color: Transparent;
 		</div>
 	</div>
     </body>
+     <script>
+
+	
+		$('img[usemap]').maphilight()
+		//$(function() {$('.map').maphilight();});
+		//$('.map').maphilight();
+     </script>
+   
 </html>
 
